@@ -1,10 +1,19 @@
 name = "conv-portfolio"
-pages_build_output_dir = "out"
 compatibility_date = "2026-09-01"
 
-# No custom domain is configured yet — Cloudflare Pages will serve the site
-# from the generated <project>.pages.dev URL. Add a `[[routes]]` block here
-# once a domain is available, e.g.:
+# Static assets deploy. Cloudflare's build system invokes `wrangler deploy`,
+# which reads `[assets]` (the Workers-static-assets form). The Pages-only
+# `pages_build_output_dir` key is ignored by `wrangler deploy`, which is what
+# produced "Missing entry-point to Worker script or to assets directory".
+[assets]
+directory = "out"
+
+# SPA-style fallback so client-side navigation resolves to the exported page.
+not_found_handling = "single-page-application"
+
+# No custom domain is configured yet — the project is served from the
+# generated *.pages.dev / *.workers.dev URL. Once a domain exists, add it in
+# the Cloudflare dashboard (and remove the comment below).
 #
 # [[routes]]
 # pattern = "yourdomain.com"
