@@ -1,0 +1,11 @@
+name = "conv-portfolio"
+pages_build_output_dir = "out"
+compatibility_date = "2026-09-01"
+
+# No custom domain is configured yet — Cloudflare Pages will serve the site
+# from the generated <project>.pages.dev URL. Add a `[[routes]]` block here
+# once a domain is available, e.g.:
+#
+# [[routes]]
+# pattern = "yourdomain.com"
+# custom_domain = true

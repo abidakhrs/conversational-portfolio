@@ -1,0 +1,130 @@
+[
+  {
+    "id": "nikoh",
+    "name": "Nikoh.my",
+    "tagline": "AI-powered wedding vendor marketplace",
+    "description": "A full-stack wedding vendor marketplace focused on the Malaysian market, enabling users to discover, compare, and connect with wedding service providers.",
+    "longDescription": "Developed a full-stack wedding vendor marketplace using Next.js and Supabase. Integrated Gemini AI to provide personalized wedding planning assistance including budget estimation, guest list management, timeline planning, and vendor recommendations. Included secure auth, and deployed on Vercel with Cloudflare.",
+    "status": "Deployed",
+    "year": "2024",
+    "type": "Full-Stack Web App",
+    "image": "/react.webp",
+    "url": "https://nikoh.my",
+    "github": null,
+    "tech": [
+      "Next.js",
+      "Supabase",
+      "JWT",
+      "Gemini AI",
+      "Vercel",
+      "Cloudflare",
+      "Resend"
+    ],
+    "highlights": [
+      "Integrated Gemini AI for personalized wedding planning assistance.",
+      "Implemented secure authentication and real-time database operations using Supabase.",
+      "Optimized the application on Vercel with Cloudflare for improved performance and security.",
+      "Integrated Resend for transactional emails."
+    ],
+    "topics": {
+      "architecture": "Next.js App Router with Supabase as the primary database and auth layer. Cloudflare Pages for hosting and Resend for transactional emails.",
+      "ai": "Uses Gemini to process user requirements and provide budget estimation, guest list management, and tailored vendor recommendations.",
+      "stack": "Next.js, Supabase, JWT, Gemini, Vercel, Cloudflare, Resend.",
+      "challenges": "Ensuring secure vendor and customer management while handling real-time database operations reliably."
+    }
+  },
+  {
+    "id": "warna-asmara",
+    "name": "Warna Asmara",
+    "tagline": "Business management platform & corporate website",
+    "description": "A full-stack business management platform and corporate website for a wedding service provider.",
+    "longDescription": "Built features to streamline business operations including customer management, booking tracking, service inquiries, and centralized business data management.",
+    "status": "Deployed",
+    "year": "2024",
+    "type": "Full-Stack Web App",
+    "image": "/vercel.svg",
+    "url": null,
+    "github": null,
+    "tech": [
+      "Next.js",
+      "Supabase",
+      "Vercel",
+      "Cloudflare"
+    ],
+    "highlights": [
+      "Developed as both an operational management system and a customer-facing digital presence.",
+      "Streamlined booking tracking and service inquiries.",
+      "Opened solutions to comply with client budget constraints."
+    ],
+    "topics": {
+      "architecture": "Next.js frontend with Supabase backend, deployed on Vercel with Cloudflare routing.",
+      "ai": "No AI integration, focuses on operational efficiency.",
+      "stack": "Next.js, Supabase, Vercel, Cloudflare.",
+      "challenges": "Balancing comprehensive feature requirements with the allocated budget to achieve a win-win scenario."
+    }
+  },
+  {
+    "id": "transaction-generator",
+    "name": "Transaction Name Generator & Comparison Tool",
+    "tagline": "Excel VBA-based QA automation tool",
+    "description": "An automated tool to streamline transaction naming and comparison activities during performance testing.",
+    "longDescription": "Developed an Excel VBA-based QA tool to automate transaction naming and streamline comparison activities during performance testing. Significantly reduced manual effort and improved consistency in data preparation.",
+    "status": "Internal Tool",
+    "year": "2023",
+    "type": "Automation Tool",
+    "image": "/window.svg",
+    "url": null,
+    "github": null,
+    "tech": [
+      "Excel",
+      "VBA",
+      "Macro"
+    ],
+    "highlights": [
+      "Automated repetitive data-processing tasks, improving consistency.",
+      "Designed to support faster preparation and validation of performance testing data.",
+      "Applied problem-solving and automation concepts to improve testing workflow efficiency."
+    ],
+    "topics": {
+      "architecture": "Standalone Excel tool leveraging VBA Macros for rapid local processing.",
+      "ai": "Rule-based logic and macros, no external AI.",
+      "stack": "Excel, VBA, Macros.",
+      "challenges": "Ensuring the macros remain performant and accurate when processing thousands of transaction entries."
+    }
+  },
+  {
+    "id": "conversational-portfolio",
+    "name": "Conversational Portfolio",
+    "tagline": "AI-style interactive portfolio with intent-driven conversations",
+    "description": "An interactive portfolio website designed as a conversational interface, allowing visitors to explore education, experience, projects, and contact information through chat and contextual quick actions.",
+    "longDescription": "Built a conversational portfolio using Next.js and TypeScript, combining a chat-based interface with intent detection and state-driven navigation. Visitors can explore portfolio content through quick actions or natural-language messages, with contextual responses, project details, images, and suggested next actions. Designed with a static-first architecture to provide fast response times without requiring a traditional backend.",
+    "status": "Deployed",
+    "year": "2026",
+    "type": "Conversational Web App",
+    "image": "/globe.svg",
+    "url": null,
+    "github": null,
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion",
+      "Intent Detection",
+      "Static Architecture",
+      "Cloudflare"
+    ],
+    "highlights": [
+      "Designed a conversational portfolio experience using chat-style interactions instead of traditional navigation — so yes, you're reading its highlight list from inside itself.",
+      "Implemented intent-driven routing to understand user messages and navigate to relevant portfolio content.",
+      "Built contextual quick actions that allow users to progressively explore education, experience, projects, and contact information.",
+      "Used a static-first architecture to achieve fast response times without requiring a dedicated backend or database.",
+      "Added lightweight animations and optimized image loading to create an AI-style experience without significantly impacting performance."
+    ],
+    "topics": {
+      "architecture": "Next.js and TypeScript frontend using a state-driven conversation engine, local portfolio data, and intent-based routing. Designed as a static-first application and deployed through a serverless/static hosting architecture.",
+      "ai": "Uses intent detection to interpret natural-language messages and map them to relevant portfolio sections and topics. The architecture is designed to support an external AI model for more advanced queries without making the core experience dependent on an AI API.",
+      "stack": "Next.js, TypeScript, Tailwind CSS, Motion, Intent Detection, Static Architecture, Cloudflare.",
+      "challenges": "Creating an AI-style conversational experience while keeping response times fast, minimizing infrastructure requirements, and ensuring that users can navigate naturally through both quick actions and free-text messages. Also: resisting the urge to make the bot talk about itself too much. You clearly found that button anyway."
+    }
+  }
+]

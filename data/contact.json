@@ -1,0 +1,34 @@
+{
+  "email": "abidakhrs@gmail.com",
+  "phone": "+60 18-9155 412",
+  "location": "Pekan, Pahang, Malaysia",
+  "responseTime": "Usually within 24 hours",
+  "availability": "Open to full-time roles and freelance projects",
+  "preferredContact": "email",
+  "social": [
+    {
+      "platform": "Whatsapp",
+      "label": "Whatsapp me",
+      "url": "https://wa.me/60189155412?text=Hi%20Abid,%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect.",
+      "icon": "Whatsapp"
+    },
+    {
+      "platform": "Email",
+      "label": "Send an email",
+      "url": "mailto:abidakhrs@gmail.com",
+      "icon": "Mail"
+    },
+    {
+      "platform": "LinkedIn",
+      "label": "linkedin.com/in/abidakhras",
+      "url": "https://linkedin.com/in/abidakhras",
+      "icon": "Linkedin"
+    },
+    {
+      "platform": "GitHub",
+      "label": "github.com/abidakhrs",
+      "url": "https://github.com/abidakhrs",
+      "icon": "Github"
+    }
+  ]
+}

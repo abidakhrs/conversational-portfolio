@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Software Testing & QA",
+    "items": ["Performance Testing", "Non-Functional Testing", "Load Testing", "Functional Testing", "Test Automation", "STLC", "LoadRunner", "Jira", "Excel/VBA", "Postman"]
+  },
+  {
+    "category": "Programming & Development",
+    "items": ["React", "TypeScript", "NestJS", "Java Spring Boot", "NPM", "Webpack", "Git", "C"]
+  },
+  {
+    "category": "Cloud & DevOps",
+    "items": ["VPS", "AWS (EC2, IAM, S3)", "Docker", "Nginx", "CI/CD"]
+  },
+  {
+    "category": "Data & Analytics",
+    "items": ["NumPy", "Scikit-learn", "Machine Learning", "SQL", "Power BI", "Looker Studio", "Gen AI"]
+  }
+]

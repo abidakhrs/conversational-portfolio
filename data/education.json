@@ -1,0 +1,34 @@
+[
+  {
+    "id": "bachelor",
+    "degree": "Bachelor of Computer Science",
+    "major": "Computer System & Networking",
+    "institution": "Universiti Malaysia Pahang Al-Sultan Abdullah",
+    "shortName": "UMPSA",
+    "location": "Pekan, Pahang",
+    "startYear": "2023",
+    "endYear": "Present",
+    "grade": "3.45 CGPA",
+    "description": "Advanced studies in computer systems, networking, and software engineering principles.",
+    "highlights": [
+      "FYPro (Final Year Project) Finalist Bronze Award by Computing Faculty UMPSA"
+    ],
+    "image": "/myself.png"
+  },
+  {
+    "id": "diploma",
+    "degree": "Diploma of Computer Science",
+    "major": "Computer Science",
+    "institution": "Universiti Malaysia Pahang Al-Sultan Abdullah",
+    "shortName": "UMPSA",
+    "location": "Pekan, Pahang",
+    "startYear": "2020",
+    "endYear": "2023",
+    "grade": "3.47 CGPA",
+    "description": "Foundational studies in computer science, programming, and software development methodologies.",
+    "highlights": [
+      "Anugerah Pencapaian Cemerlang Kategori Universiti by MOHE - MDEC GOT (Nov 2024)"
+    ],
+    "image": "/formal.png"
+  }
+]

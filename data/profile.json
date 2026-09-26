@@ -1,0 +1,14 @@
+{
+  "name": "Muhammad Abid Akhras",
+  "title": "Software QA & Developer",
+  "tagline": "Passionate about full-stack development, QA, and engineering reliable systems.",
+  "avatar": "/myself.png",
+  "location": "Malaysia",
+  "available": true,
+  "availableText": "Open to opportunities",
+  "social": {
+    "github": "https://github.com/abidakhrs",
+    "linkedin": "https://linkedin.com/in/abidakhras",
+    "email": "abidakhrs@gmail.com"
+  }
+}

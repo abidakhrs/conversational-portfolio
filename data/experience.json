@@ -1,0 +1,99 @@
+[
+  {
+    "id": "cognizant-intern",
+    "title": "Performance Tester",
+    "company": "Cognizant Technology Solutions",
+    "companyShort": "Cognizant",
+    "location": "Malaysia",
+    "type": "Full-time",
+    "startDate": "Mar 2026",
+    "endDate": "Present",
+    "current": true,
+    "description": "Specializing in performance, load, and stress testing for enterprise applications using LoadRunner.",
+    "highlights": [
+      "Developed and maintained performance test scripts using LoadRunner (Web HTTP/HTML & TruClient), executing load, stress, and endurance testing.",
+      "Collaborated with stakeholders during requirement analysis to design realistic test scenarios and performance criteria.",
+      "Logged defects using Jira, delivered performance analysis reports with optimization recommendations.",
+      "Developed multiple VBA-based tools to streamline performance testing activities and automate repetitive tasks."
+    ],
+    "skills": [
+      "LoadRunner",
+      "Performance Testing",
+      "Jira",
+      "VBA"
+    ],
+    "image": "/cognizant.webp"
+  },
+  {
+    "id": "deloitte-intern",
+    "title": "Technology & Transformation Intern",
+    "company": "Deloitte Consulting SEA",
+    "companyShort": "Deloitte",
+    "location": "Malaysia",
+    "type": "Internship",
+    "startDate": "Aug 2025",
+    "endDate": "Jan 2026",
+    "current": false,
+    "description": "Worked on a next-generation banking POC leveraging Micro Front-End architecture and microservices.",
+    "highlights": [
+      "Built a next-generation banking POC leveraging Micro Front-End architecture with Atomic Design UI.",
+      "Implemented analytics and structured error handling to track user journeys.",
+      "Developed and validated microservices architecture using Java Spring Boot with Kafka for event-driven communication.",
+      "Deployed an internal GenAI system on AWS EC2, using Docker for containerization and Nginx as a reverse proxy."
+    ],
+    "skills": [
+      "Java Spring Boot",
+      "Kafka",
+      "AWS EC2",
+      "Docker",
+      "Nginx",
+      "Micro Front-End"
+    ],
+    "image": "/deloitte.webp"
+  },
+  {
+    "id": "cybersphere-dev",
+    "title": "Software Developer",
+    "company": "CyberSphere Solution Sdn. Bhd.",
+    "companyShort": "CyberSphere",
+    "location": "Malaysia",
+    "type": "Contract",
+    "startDate": "May 2023",
+    "endDate": "Aug 2023",
+    "current": false,
+    "description": "Developed DietMate, an innovative food diary and diet management web application.",
+    "highlights": [
+      "Developed DietMate targeting two different user groups with a focus on usability and responsive interface design.",
+      "Coordinated task distribution and project timelines among team members.",
+      "Delivered monthly progress reports in team meetings to maintain alignment with project goals."
+    ],
+    "skills": [
+      "Web Development",
+      "UI/UX",
+      "Project Coordination"
+    ]
+  },
+  {
+    "id": "fifway-dev",
+    "title": "Web Developer Intern/Part Time",
+    "company": "FIFWAY System Sdn. Bhd.",
+    "companyShort": "FIFWAY",
+    "location": "Malaysia",
+    "type": "Internship",
+    "startDate": "Jul 2022",
+    "endDate": "Mar 2023",
+    "current": false,
+    "description": "Contributed to the development of a port and vessel management administration system.",
+    "highlights": [
+      "Developed features with emphasis on system functionality, usability, and operational reliability.",
+      "Participated in client-side meetings to discuss change requests and feedback.",
+      "Assisted in user training sessions for 30+ participants onsite.",
+      "Authored 100+ pages of detailed user manuals tailored to multiple user roles."
+    ],
+    "skills": [
+      "System Administration",
+      "Technical Writing",
+      "Client Relations"
+    ]
+  }
+]
