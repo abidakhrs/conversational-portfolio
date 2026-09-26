@@ -53,7 +53,6 @@ const intentKeywords: Record<Exclude<IntentType, 'UNKNOWN'>, string[]> = {
     'deloitte', 'big four', 'micro front end', 'microfrontend',
     'spring boot', 'kafka', 'atomic design', 'next generation banking',
   ],
-  EXP_CYBERSPHERE: ['cybersphere', 'dietmate', 'diet mate'],
   EXP_FIFWAY: ['fifway', 'port', 'vessel', 'pelabuhan', 'kapal', 'maritime'],
   PROJ_NIKOH: ['nikoh', 'wedding', 'marketplace', 'resend', 'gemini ai', 'gemini'],
   PROJ_WARNA: ['warna', 'asmara', 'corporate'],
@@ -73,7 +72,6 @@ const intentKeywords: Record<Exclude<IntentType, 'UNKNOWN'>, string[]> = {
 const entityIds: Partial<Record<IntentType, { kind: 'edu' | 'exp' | 'project'; id: string }>> = {
   EXP_COGNIZANT: { kind: 'exp', id: 'cognizant-intern' },
   EXP_DELOITTE: { kind: 'exp', id: 'deloitte-intern' },
-  EXP_CYBERSPHERE: { kind: 'exp', id: 'cybersphere-dev' },
   EXP_FIFWAY: { kind: 'exp', id: 'fifway-dev' },
   PROJ_NIKOH: { kind: 'project', id: 'nikoh' },
   PROJ_WARNA: { kind: 'project', id: 'warna-asmara' },
@@ -97,7 +95,6 @@ const TIERS: Partial<Record<IntentType, 'category' | 'entity'>> = {
   CONTACT: 'category',
   EXP_COGNIZANT: 'entity',
   EXP_DELOITTE: 'entity',
-  EXP_CYBERSPHERE: 'entity',
   EXP_FIFWAY: 'entity',
   PROJ_NIKOH: 'entity',
   PROJ_WARNA: 'entity',

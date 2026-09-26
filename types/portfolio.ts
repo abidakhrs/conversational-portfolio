@@ -115,7 +115,6 @@ export type IntentType =
   | 'UNKNOWN'
   | 'EXP_COGNIZANT'
   | 'EXP_DELOITTE'
-  | 'EXP_CYBERSPHERE'
   | 'EXP_FIFWAY'
   | 'PROJ_NIKOH'
   | 'PROJ_WARNA'

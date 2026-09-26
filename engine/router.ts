@@ -34,7 +34,7 @@ const contact = contactData as Contact;
 const currentRole = experience.find((e) => e.current);
 const companies = Array.from(new Set(experience.map((e) => e.companyShort)));
 
-// Reads as "Cognizant, Deloitte, CyberSphere and FIFWAY" for any data set.
+// Reads as "Cognizant, Deloitte and FIFWAY" for any data set.
 const companyList = [
   companies.slice(0, -1).join(', '),
   companies.slice(-1)[0],
@@ -165,9 +165,21 @@ export function resolveResponse(state: ConversationState): Omit<Message, 'id' | 
       const intro = selfAware(project.id)
         ? `**${project.name}** — this very thing you're looking at right now. 👀\n\n${project.tagline}\n\nYes, the portfolio is one of my projects. Clicking this was the demo.\n\n${project.description}`
         : `**${project.name}** — ${project.tagline}\n\n${project.description}`;
+
+      // Surface the live site and/or repo as conversational actions, so
+      // leaving the chat to view the real thing is a first-class option.
+      const linkActions: QuickAction[] = [];
+      if (project.url) {
+        linkActions.push({ label: '🔗 Visit live site', payload: `visit:${project.url}` });
+      }
+      if (project.github) {
+        linkActions.push({ label: '🐙 View source', payload: `visit:${project.github}` });
+      }
+
       return msg(
         intro,
         [
+          ...linkActions,
           { label: '🏗️ Architecture', payload: `topic:${project.id}:architecture` },
           { label: '🤖 AI / Automation', payload: `topic:${project.id}:ai` },
           { label: '💻 Tech Stack', payload: `topic:${project.id}:stack` },
@@ -309,6 +321,11 @@ export function parsePayloadResult(payload: string, current: ConversationState):
     };
   }
 
+  // Explicit navigation to an external site/repo.
+  if (payload.startsWith('visit:')) {
+    return { state: current, external: payload.slice(6) };
+  }
+
   // External links — reported, not opened, so state stays untouched.
   if (payload.startsWith('mailto:') || payload.startsWith('http')) {
     return { state: current, external: payload };
@@ -332,6 +349,11 @@ export function payloadLabel(payload: string): string {
   if (payload === 'projects') return '🚀 Projects';
   if (payload === 'skills') return '🛠️ Skills';
   if (payload === 'contact') return '📬 Contact';
+
+  if (payload.startsWith('visit:')) {
+    const url = payload.slice(6);
+    return url.includes('github.com') ? '🐙 View source' : '🔗 Visit live site';
+  }
 
   if (payload.startsWith('edu:')) {
     return education.find((e) => e.id === payload.slice(4))?.degree ?? 'Education';

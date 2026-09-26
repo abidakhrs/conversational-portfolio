@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, RotateCcw } from 'lucide-react';
+import { Send, RotateCcw, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import type { Message, ConversationState } from '@/types/portfolio';
 import { detectIntent } from '@/engine/intent';
@@ -17,6 +17,20 @@ import { ChatMessage } from './ChatMessage';
 import { TypingIndicator } from './TypingIndicator';
 
 const TYPING_DELAY = 400; // ms
+const NAVIGATE_DELAY = 900; // ms — how long the "taking you there" overlay shows
+
+// Turn a URL into something friendly to show in the overlay.
+function siteName(url: string): string {
+  if (url.includes('github.com')) {
+    const parts = url.replace(/\/$/, '').split('/');
+    return `github.com/${parts.slice(3, 5).join('/')}`;
+  }
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
 
 // Map a resolved intent (plus its entity id) to a router payload. Entity
 // intents carry their record id from the engine; section intents map to
@@ -53,6 +67,7 @@ export function ChatWindow() {
   const [state, setState] = useState<ConversationState>(initial.state);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
+  const [navigating, setNavigating] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -100,7 +115,16 @@ export function ChatWindow() {
       const { state: nextState, external } = parsePayloadResult(payload, state);
 
       if (external) {
-        window.open(external, '_blank', 'noopener,noreferrer');
+        // Echo the click, show a short "taking you there" transition, then
+        // open the destination in a new tab.
+        const userMsg = buildMessage({ role: 'user', content: payloadLabel(payload) });
+        setMessages((prev) => [...prev, userMsg]);
+        setNavigating(external);
+        window.setTimeout(() => {
+          window.open(external, '_blank', 'noopener,noreferrer');
+          setNavigating(null);
+          inputRef.current?.focus();
+        }, NAVIGATE_DELAY);
         return;
       }
 
@@ -174,7 +198,43 @@ export function ChatWindow() {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="relative flex flex-col h-full">
+      {/* Navigation transition overlay */}
+      <AnimatePresence>
+        {navigating && (
+          <motion.div
+            key="navigating"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute inset-0 z-50 flex flex-col items-center justify-center gap-3 backdrop-blur-sm"
+            style={{ background: 'rgba(10, 8, 20, 0.72)' }}
+            role="status"
+            aria-live="polite"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 6 }}
+              animate={{ scale: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="flex flex-col items-center gap-2 px-6"
+            >
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+                className="w-11 h-11 rounded-2xl bg-violet-500/15 border border-violet-500/40 flex items-center justify-center text-violet-300"
+              >
+                <ExternalLink size={20} />
+              </motion.div>
+              <p className="text-sm font-semibold text-white">Taking you there…</p>
+              <p className="text-xs text-white/60 font-mono truncate max-w-[240px]">
+                {siteName(navigating)}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
         <div className="flex items-center gap-2">

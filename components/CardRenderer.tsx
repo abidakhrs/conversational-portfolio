@@ -166,7 +166,7 @@ function ProjectCard({ project, onAction }: { project: Project; onAction: (p: st
           {project.status}
         </span>
       </div>
-      <div className="flex flex-wrap gap-1.5 mt-2">
+      <div className="flex flex-wrap items-center gap-1.5 mt-2">
         {project.tech.slice(0, 4).map((t) => (
           <span key={t} className="text-xs px-1.5 py-0.5 bg-white/5 text-foreground-muted rounded border border-border">
             {t}
@@ -175,12 +175,25 @@ function ProjectCard({ project, onAction }: { project: Project; onAction: (p: st
         {project.tech.length > 4 && (
           <span className="text-xs text-foreground-muted">+{project.tech.length - 4}</span>
         )}
+        {project.url && (
+          <span
+            role="link"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onAction(`visit:${project.url}`);
+            }}
+            className="ml-auto inline-flex items-center gap-1 text-xs text-violet-400 hover:text-violet-300 transition-colors cursor-pointer"
+          >
+            <ExternalLink size={11} /> Visit
+          </span>
+        )}
       </div>
     </motion.button>
   );
 }
 
-function ProjectDetail({ project }: { project: Project }) {
+function ProjectDetail({ project, onAction }: { project: Project; onAction: (p: string) => void }) {
   return (
     <div className="bg-surface border border-border rounded-xl p-3 space-y-2">
       <div className="flex items-start justify-between gap-2">
@@ -188,21 +201,29 @@ function ProjectDetail({ project }: { project: Project }) {
           <p className="text-sm font-semibold text-foreground">{project.name}</p>
           <p className="text-xs text-foreground-muted">{project.type} · {project.year}</p>
         </div>
-        <div className="flex items-center gap-2 shrink-0">
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-              className="text-foreground-muted hover:text-foreground transition-colors">
-              <GitFork size={14} />
-            </a>
-          )}
+      </div>
+
+      {(project.url || project.github) && (
+        <div className="flex flex-wrap gap-2 pt-0.5">
           {project.url && (
-            <a href={project.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-              className="text-foreground-muted hover:text-foreground transition-colors">
-              <ExternalLink size={14} />
-            </a>
+            <button
+              onClick={() => onAction(`visit:${project.url}`)}
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-violet-500/15 text-violet-300 border border-violet-500/30 hover:bg-violet-500/25 hover:text-violet-200 transition-colors cursor-pointer"
+            >
+              <ExternalLink size={12} /> Visit live site
+            </button>
+          )}
+          {project.github && (
+            <button
+              onClick={() => onAction(`visit:${project.github}`)}
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-surface text-foreground-muted border border-border hover:border-violet-500/60 hover:text-violet-300 transition-colors cursor-pointer"
+            >
+              <GitFork size={12} /> View source
+            </button>
           )}
         </div>
-      </div>
+      )}
+
       <ul className="space-y-1 pt-1">
         {project.highlights.map((h, i) => (
           <li key={i} className="flex items-start gap-2 text-xs text-foreground-muted">
@@ -334,7 +355,11 @@ export function CardRenderer({ card, onAction }: Props) {
         </div>
       );
     case 'project-detail':
-      return <div className="max-w-[92%]"><ProjectDetail project={card.data} /></div>;
+      return (
+        <div className="max-w-[92%]">
+          <ProjectDetail project={card.data} onAction={onAction} />
+        </div>
+      );
 
     case 'project-topic':
       return (

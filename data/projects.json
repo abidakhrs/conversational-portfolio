@@ -43,7 +43,7 @@
     "year": "2024",
     "type": "Full-Stack Web App",
     "image": "/vercel.svg",
-    "url": null,
+    "url": "https://warnaasmara.com",
     "github": null,
     "tech": [
       "Next.js",
@@ -103,7 +103,7 @@
     "type": "Conversational Web App",
     "image": "/globe.svg",
     "url": null,
-    "github": null,
+    "github": "https://github.com/abidakhrs/conversational-portfolio",
     "tech": [
       "Next.js",
       "TypeScript",

@@ -52,28 +52,6 @@
     "image": "/deloitte.webp"
   },
   {
-    "id": "cybersphere-dev",
-    "title": "Software Developer",
-    "company": "CyberSphere Solution Sdn. Bhd.",
-    "companyShort": "CyberSphere",
-    "location": "Malaysia",
-    "type": "Contract",
-    "startDate": "May 2023",
-    "endDate": "Aug 2023",
-    "current": false,
-    "description": "Developed DietMate, an innovative food diary and diet management web application.",
-    "highlights": [
-      "Developed DietMate targeting two different user groups with a focus on usability and responsive interface design.",
-      "Coordinated task distribution and project timelines among team members.",
-      "Delivered monthly progress reports in team meetings to maintain alignment with project goals."
-    ],
-    "skills": [
-      "Web Development",
-      "UI/UX",
-      "Project Coordination"
-    ]
-  },
-  {
     "id": "fifway-dev",
     "title": "Web Developer Intern/Part Time",
     "company": "FIFWAY System Sdn. Bhd.",
