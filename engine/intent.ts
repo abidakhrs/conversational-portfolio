@@ -44,6 +44,7 @@ const intentKeywords: Record<Exclude<IntentType, 'UNKNOWN'>, string[]> = {
     'contact', 'email', 'reach', 'hire', 'available', 'connect',
     'message', 'talk', 'touch', 'linkedin', 'github', 'social',
     'opportunity', 'recruit', 'recruiter', 'phone', 'whatsapp',
+    'resume', 'cv', 'curriculum vitae', 'download',
   ],
   BACK: ['back', 'return', 'previous', 'prev'],
   HOME: ['home', 'start', 'restart', 'beginning', 'reset', 'menu'],

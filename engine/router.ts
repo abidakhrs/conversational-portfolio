@@ -241,6 +241,9 @@ export function resolveResponse(state: ConversationState): Omit<Message, 'id' | 
         `Let's talk — ${contact.availability}.\n\n${contact.responseTime}. I actually do reply.`,
         [
           { label: '📧 Email me', payload: `mailto:${contact.email}` },
+          ...(contact.resumeUrl
+            ? [{ label: '📄 Download resume', payload: `download:${contact.resumeUrl}` }]
+            : []),
           { label: '← Back', payload: 'home' },
         ],
         { type: 'contact', data: contact }
@@ -295,7 +298,10 @@ export function buildMessage(partial: Omit<Message, 'id' | 'timestamp'>): Messag
 
 export interface PayloadResult {
   state: ConversationState;
+  /** Open in a new tab (live sites, repos, mailto). */
   external?: string;
+  /** Trigger a file download instead of a new tab. */
+  download?: string;
 }
 
 export function parsePayloadResult(payload: string, current: ConversationState): PayloadResult {
@@ -338,6 +344,11 @@ export function parsePayloadResult(payload: string, current: ConversationState):
     };
   }
 
+  // Explicit file download (e.g. resume).
+  if (payload.startsWith('download:')) {
+    return { state: current, download: payload.slice(9) };
+  }
+
   // Explicit navigation to an external site/repo.
   if (payload.startsWith('visit:')) {
     return { state: current, external: payload.slice(6) };
@@ -367,6 +378,8 @@ export function payloadLabel(payload: string): string {
   if (payload === 'skills') return '🛠️ Skills';
   if (payload === 'certifications') return '🏅 Certifications';
   if (payload === 'contact') return '📬 Contact';
+
+  if (payload.startsWith('download:')) return '📄 Download resume';
 
   if (payload.startsWith('visit:')) {
     const url = payload.slice(6);

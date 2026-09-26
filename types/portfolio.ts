@@ -88,6 +88,7 @@ export interface Contact {
   responseTime: string;
   availability: string;
   preferredContact: string;
+  resumeUrl?: string;
   social: {
     platform: string;
     label: string;

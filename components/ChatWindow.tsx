@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, RotateCcw, ExternalLink } from 'lucide-react';
+import { Send, RotateCcw, ExternalLink, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import type { Message, ConversationState } from '@/types/portfolio';
+import type { Message, ConversationState, Contact } from '@/types/portfolio';
 import { detectIntent } from '@/engine/intent';
+import contactData from '@/data/contact.json';
 import {
   resolveResponse,
   buildMessage,
@@ -18,6 +19,8 @@ import { TypingIndicator } from './TypingIndicator';
 
 const TYPING_DELAY = 400; // ms
 const NAVIGATE_DELAY = 900; // ms — how long the "taking you there" overlay shows
+
+const resumeUrl = (contactData as Contact).resumeUrl;
 
 // Turn a URL into something friendly to show in the overlay.
 function siteName(url: string): string {
@@ -113,7 +116,37 @@ export function ChatWindow() {
     (payload: string) => {
       // Derive next state from payload. External links are reported back
       // rather than opened inside the parser.
-      const { state: nextState, external } = parsePayloadResult(payload, state);
+      const { state: nextState, external, download } = parsePayloadResult(payload, state);
+
+      if (download) {
+        // Trigger a real file download via a temporary anchor, which the
+        // browser handles natively (no popup blocker concerns).
+        const userMsg = buildMessage({ role: 'user', content: payloadLabel(payload) });
+        setMessages((prev) => [...prev, userMsg]);
+        const a = document.createElement('a');
+        a.href = download;
+        a.download = download.split('/').pop() ?? 'resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTyping(true);
+        window.setTimeout(() => {
+          setTyping(false);
+          setMessages((prev) => [
+            ...prev,
+            buildMessage({
+              role: 'assistant',
+              content: `Downloading my resume now. 📄 If it doesn't start, the file is at \`${download}\`.`,
+              quickActions: [
+                { label: '📬 Contact', payload: 'contact' },
+                { label: '← Back', payload: 'home' },
+              ],
+            }),
+          ]);
+          inputRef.current?.focus();
+        }, TYPING_DELAY);
+        return;
+      }
 
       if (external) {
         // Echo the click, show a short "taking you there" transition, then
@@ -242,13 +275,25 @@ export function ChatWindow() {
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-xs text-foreground-muted font-medium">Portfolio Chat</span>
         </div>
-        <button
-          onClick={handleReset}
-          title="Restart conversation"
-          className="text-foreground-muted hover:text-foreground transition-colors p-1 rounded"
-        >
-          <RotateCcw size={14} />
-        </button>
+        <div className="flex items-center gap-1">
+          {resumeUrl && (
+            <button
+              onClick={() => handleAction(`download:${resumeUrl}`)}
+              title="Download resume"
+              className="flex items-center gap-1.5 text-xs font-medium text-foreground-muted hover:text-violet-400 transition-colors px-2 py-1 rounded"
+            >
+              <Download size={14} />
+              <span className="hidden sm:inline">Resume</span>
+            </button>
+          )}
+          <button
+            onClick={handleReset}
+            title="Restart conversation"
+            className="text-foreground-muted hover:text-foreground transition-colors p-1 rounded"
+          >
+            <RotateCcw size={14} />
+          </button>
+        </div>
       </div>
 
       {/* Messages */}
