@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ExternalLink, GitFork, MapPin, Calendar } from 'lucide-react';
+import { ExternalLink, GitFork, MapPin, Calendar, Award, BadgeCheck } from 'lucide-react';
 import { SocialIcon } from 'react-social-icons';
-import type { CardPayload, Education, Experience, Project, SkillCategory, Contact } from '@/types/portfolio';
+import type { CardPayload, Education, Experience, Project, SkillCategory, Certification, Contact } from '@/types/portfolio';
 
 interface Props {
   card: CardPayload;
@@ -294,6 +294,33 @@ function SkillsCard({ skills }: { skills: SkillCategory[] }) {
   );
 }
 
+// ─── Certifications ────────────────────────────────────────────────
+
+function CertificationsCard({ certifications }: { certifications: Certification[] }) {
+  return (
+    <div className="bg-surface border border-border rounded-xl p-3 space-y-2">
+      {certifications.map((c) => (
+        <div key={c.id} className="flex items-start gap-2.5">
+          <span
+            className={`mt-0.5 shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+              c.type === 'Award'
+                ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
+                : 'bg-violet-500/15 text-violet-400 border border-violet-500/30'
+            }`}
+          >
+            {c.type === 'Award' ? <Award size={12} /> : <BadgeCheck size={12} />}
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold text-foreground leading-snug">{c.name}</p>
+            <p className="text-xs text-foreground-muted">{c.issuer}</p>
+          </div>
+          <span className="text-xs text-foreground-muted shrink-0 mt-0.5">{c.date}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ─── Contact ───────────────────────────────────────────────────────
 
 function ContactCard({ contact }: { contact: Contact }) {
@@ -370,6 +397,13 @@ export function CardRenderer({ card, onAction }: Props) {
 
     case 'skills':
       return <div className="max-w-[92%]"><SkillsCard skills={card.data as SkillCategory[]} /></div>;
+
+    case 'certifications':
+      return (
+        <div className="max-w-[92%]">
+          <CertificationsCard certifications={card.data as Certification[]} />
+        </div>
+      );
 
     case 'contact':
       return <div className="max-w-[92%]"><ContactCard contact={card.data as Contact} /></div>;

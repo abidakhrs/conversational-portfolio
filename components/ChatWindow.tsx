@@ -41,6 +41,7 @@ function toPayload(intent: string, entityId?: string): string | null {
     EXPERIENCE: 'experience',
     PROJECTS: 'projects',
     SKILLS: 'skills',
+    CERTIFICATIONS: 'certifications',
     CONTACT: 'contact',
     BACK: 'back',
     HOME: 'home',

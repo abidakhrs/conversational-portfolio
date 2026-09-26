@@ -73,6 +73,14 @@ export interface SkillCategory {
   items: string[];
 }
 
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+  type: 'Certification' | 'Award';
+}
+
 export interface Contact {
   email: string;
   phone: string;
@@ -100,6 +108,7 @@ export type ConversationState =
   | { type: 'PROJECT_DETAIL'; id: string }
   | { type: 'PROJECT_TOPIC'; projectId: string; topic: keyof Project['topics'] }
   | { type: 'SKILLS' }
+  | { type: 'CERTIFICATIONS' }
   | { type: 'CONTACT' };
 
 export type IntentType =
@@ -107,6 +116,7 @@ export type IntentType =
   | 'EXPERIENCE'
   | 'PROJECTS'
   | 'SKILLS'
+  | 'CERTIFICATIONS'
   | 'CONTACT'
   | 'BACK'
   | 'HOME'
@@ -157,4 +167,5 @@ export type CardPayload =
   | { type: 'project-detail'; data: Project }
   | { type: 'project-topic'; data: Project; topic: keyof Project['topics'] }
   | { type: 'skills'; data: SkillCategory[] }
+  | { type: 'certifications'; data: Certification[] }
   | { type: 'contact'; data: Contact };

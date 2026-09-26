@@ -21,10 +21,10 @@
       "Resend"
     ],
     "highlights": [
-      "Integrated Gemini AI for personalized wedding planning assistance.",
-      "Implemented secure authentication and real-time database operations using Supabase.",
-      "Optimized the application on Vercel with Cloudflare for improved performance and security.",
-      "Integrated Resend for transactional emails."
+      "Built a full-stack AI-powered wedding vendor marketplace for the Malaysian market, enabling vendor discovery, comparison, inquiries, and wedding planning.",
+      "Integrated Gemini AI to generate personalized wedding plans, including budget estimation, guest planning, timelines, and vendor recommendations.",
+      "Implemented authentication, role-based customer/vendor management, database security, and transactional email workflows.",
+      "Deployed the application using Vercel, Cloudflare, and Supabase."
     ],
     "topics": {
       "architecture": "Next.js App Router with Supabase as the primary database and auth layer. Cloudflare Pages for hosting and Resend for transactional emails.",
@@ -52,9 +52,10 @@
       "Cloudflare"
     ],
     "highlights": [
-      "Developed as both an operational management system and a customer-facing digital presence.",
-      "Streamlined booking tracking and service inquiries.",
-      "Opened solutions to comply with client budget constraints."
+      "Built a full-stack business management platform and customer-facing corporate website for a wedding service provider.",
+      "Streamlined customer management, booking tracking, service inquiries, and centralized business data.",
+      "Implemented authentication and database operations with Supabase, deployed on Vercel with Cloudflare.",
+      "Delivered a cost-conscious solution that met the client's requirements within budget."
     ],
     "topics": {
       "architecture": "Next.js frontend with Supabase backend, deployed on Vercel with Cloudflare routing.",
@@ -81,9 +82,9 @@
       "Macro"
     ],
     "highlights": [
-      "Automated repetitive data-processing tasks, improving consistency.",
-      "Designed to support faster preparation and validation of performance testing data.",
-      "Applied problem-solving and automation concepts to improve testing workflow efficiency."
+      "Built an Excel VBA automation tool to generate transaction names and streamline comparison activities for performance testing.",
+      "Automated repetitive data-processing and validation tasks, reducing manual effort and improving consistency.",
+      "Designed the workflow to accelerate performance test data preparation and validation."
     ],
     "topics": {
       "architecture": "Standalone Excel tool leveraging VBA Macros for rapid local processing.",
@@ -114,11 +115,11 @@
       "Cloudflare"
     ],
     "highlights": [
-      "Designed a conversational portfolio experience using chat-style interactions instead of traditional navigation — so yes, you're reading its highlight list from inside itself.",
+      "Built an interactive conversational portfolio that lets visitors explore professional experience and projects through a natural-language interface — so yes, you're reading its highlight list from inside itself.",
+      "Integrated intent-powered conversation to provide contextual responses about skills, projects, and technical experience.",
       "Implemented intent-driven routing to understand user messages and navigate to relevant portfolio content.",
       "Built contextual quick actions that allow users to progressively explore education, experience, projects, and contact information.",
-      "Used a static-first architecture to achieve fast response times without requiring a dedicated backend or database.",
-      "Added lightweight animations and optimized image loading to create an AI-style experience without significantly impacting performance."
+      "Used a static-first architecture to achieve fast response times without requiring a dedicated backend or database."
     ],
     "topics": {
       "architecture": "Next.js and TypeScript frontend using a state-driven conversation engine, local portfolio data, and intent-based routing. Designed as a static-first application and deployed through a serverless/static hosting architecture.",

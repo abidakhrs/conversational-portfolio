@@ -1,0 +1,37 @@
+[
+  {
+    "id": "aws-ai-practitioner",
+    "name": "AWS Certified AI Practitioner",
+    "issuer": "Amazon Web Services",
+    "date": "Jan 2026",
+    "type": "Certification"
+  },
+  {
+    "id": "fyp-bronze",
+    "name": "Final Year Project — Finalist Bronze Award",
+    "issuer": "Computing Faculty, UMPSA",
+    "date": "Jul 2025",
+    "type": "Award"
+  },
+  {
+    "id": "ibm-ai-fundamentals",
+    "name": "Certified AI Fundamentals",
+    "issuer": "IBM",
+    "date": "Mar 2025",
+    "type": "Certification"
+  },
+  {
+    "id": "cisco-ccna",
+    "name": "CCNA: Enterprise Networking, Security, and Automation",
+    "issuer": "Cisco",
+    "date": "Nov 2024",
+    "type": "Certification"
+  },
+  {
+    "id": "mohe-mdec-got",
+    "name": "Anugerah Pencapaian Cemerlang Kategori Universiti",
+    "issuer": "MOHE-MDEC GOT",
+    "date": "Jul 2024",
+    "type": "Award"
+  }
+]

@@ -34,6 +34,12 @@ const intentKeywords: Record<Exclude<IntentType, 'UNKNOWN'>, string[]> = {
     'java', 'docker', 'sql', 'power bi', 'machine learning', 'gen ai',
     'nest', 'nestjs',
   ],
+  CERTIFICATIONS: [
+    'certificate', 'certificates', 'certification', 'certifications',
+    'certified', 'credential', 'credentials', 'award', 'awards',
+    'achievement', 'achievements', 'honour', 'honours', 'honor', 'honors',
+    'aws certified', 'ccna', 'ibm', 'cisco', 'accomplishment',
+  ],
   CONTACT: [
     'contact', 'email', 'reach', 'hire', 'available', 'connect',
     'message', 'talk', 'touch', 'linkedin', 'github', 'social',
@@ -92,6 +98,7 @@ const TIERS: Partial<Record<IntentType, 'category' | 'entity'>> = {
   EXPERIENCE: 'category',
   PROJECTS: 'category',
   SKILLS: 'category',
+  CERTIFICATIONS: 'category',
   CONTACT: 'category',
   EXP_COGNIZANT: 'entity',
   EXP_DELOITTE: 'entity',

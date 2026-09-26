@@ -7,11 +7,12 @@
     "shortName": "UMPSA",
     "location": "Pekan, Pahang",
     "startYear": "2023",
-    "endYear": "Present",
+    "endYear": "2026",
     "grade": "3.45 CGPA",
     "description": "Advanced studies in computer systems, networking, and software engineering principles.",
     "highlights": [
-      "FYPro (Final Year Project) Finalist Bronze Award by Computing Faculty UMPSA"
+      "FYPro (Final Year Project) Finalist Bronze Award by Computing Faculty UMPSA (Jul 2025)",
+      "Anugerah Pencapaian Cemerlang Kategori Universiti by MOHE-MDEC GOT (Jul 2024)"
     ],
     "image": "/myself.png"
   },
@@ -27,7 +28,7 @@
     "grade": "3.47 CGPA",
     "description": "Foundational studies in computer science, programming, and software development methodologies.",
     "highlights": [
-      "Anugerah Pencapaian Cemerlang Kategori Universiti by MOHE - MDEC GOT (Nov 2024)"
+      "Built a strong foundation in programming, data structures, and software development methodologies."
     ],
     "image": "/formal.png"
   }

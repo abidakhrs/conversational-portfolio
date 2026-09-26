@@ -6,6 +6,7 @@ import type {
   Experience,
   Project,
   SkillCategory,
+  Certification,
   Contact,
   Profile,
 } from '@/types/portfolio';
@@ -17,6 +18,7 @@ import educationData from '@/data/education.json';
 import experienceData from '@/data/experience.json';
 import projectsData from '@/data/projects.json';
 import skillsData from '@/data/skills.json';
+import certificationsData from '@/data/certifications.json';
 import contactData from '@/data/contact.json';
 
 const profile = profileData as Profile;
@@ -24,6 +26,7 @@ const education = educationData as Education[];
 const experience = experienceData as Experience[];
 const projects = projectsData as Project[];
 const skills = skillsData as SkillCategory[];
+const certifications = certificationsData as Certification[];
 const contact = contactData as Contact;
 
 // ─── Derived copy ─────────────────────────────────────────────────────
@@ -73,13 +76,14 @@ function msg(
   return { role: 'assistant', content, quickActions, card };
 }
 
-// The five section shortcuts are reused by several states.
+// The section shortcuts are reused by several states.
 function sectionActions(): QuickAction[] {
   return [
     { label: '🎓 Education', payload: 'education', icon: 'GraduationCap' },
     { label: '💼 Experience', payload: 'experience', icon: 'Briefcase' },
     { label: '🚀 Projects', payload: 'projects', icon: 'Rocket' },
     { label: '🛠️ Skills', payload: 'skills', icon: 'Wrench' },
+    { label: '🏅 Certifications', payload: 'certifications', icon: 'Award' },
     { label: '📬 Contact', payload: 'contact', icon: 'Mail' },
   ];
 }
@@ -213,11 +217,23 @@ export function resolveResponse(state: ConversationState): Omit<Message, 'id' | 
       return msg(
         `Here's my technical toolkit across ${skills.length} categories. Ask me about any of them and I'll happily go deeper.`,
         [
+          { label: '🏅 Certifications', payload: 'certifications' },
           { label: '💼 Experience', payload: 'experience' },
           { label: '🚀 Projects', payload: 'projects' },
           { label: '← Back', payload: 'home' },
         ],
         { type: 'skills', data: skills }
+      );
+
+    case 'CERTIFICATIONS':
+      return msg(
+        `Certifications and awards I've picked up along the way — ${certifications.length} in total, and yes, I keep collecting them.`,
+        [
+          { label: '🛠️ Skills', payload: 'skills' },
+          { label: '🎓 Education', payload: 'education' },
+          { label: '← Back', payload: 'home' },
+        ],
+        { type: 'certifications', data: certifications }
       );
 
     case 'CONTACT':
@@ -304,6 +320,7 @@ export function parsePayloadResult(payload: string, current: ConversationState):
   if (payload === 'experience') return { state: { type: 'EXPERIENCE' } };
   if (payload === 'projects') return { state: { type: 'PROJECTS' } };
   if (payload === 'skills') return { state: { type: 'SKILLS' } };
+  if (payload === 'certifications') return { state: { type: 'CERTIFICATIONS' } };
   if (payload === 'contact') return { state: { type: 'CONTACT' } };
 
   if (payload.startsWith('edu:')) return { state: { type: 'EDUCATION_DETAIL', id: payload.slice(4) } };
@@ -348,6 +365,7 @@ export function payloadLabel(payload: string): string {
   if (payload === 'experience') return '💼 Experience';
   if (payload === 'projects') return '🚀 Projects';
   if (payload === 'skills') return '🛠️ Skills';
+  if (payload === 'certifications') return '🏅 Certifications';
   if (payload === 'contact') return '📬 Contact';
 
   if (payload.startsWith('visit:')) {

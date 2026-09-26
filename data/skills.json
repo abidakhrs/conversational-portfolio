@@ -1,11 +1,11 @@
 [
   {
-    "category": "Software Testing & QA",
-    "items": ["Performance Testing", "Non-Functional Testing", "Load Testing", "Functional Testing", "Test Automation", "STLC", "LoadRunner", "Jira", "Excel/VBA", "Postman"]
+    "category": "Software QA",
+    "items": ["Performance Testing", "Non-Functional Testing", "Load Testing", "STLC", "LoadRunner", "Jira", "Postman", "UAT", "Scrum", "Test Automation", "Functional Testing", "Excel/VBA"]
   },
   {
     "category": "Programming & Development",
-    "items": ["React", "TypeScript", "NestJS", "Java Spring Boot", "NPM", "Webpack", "Git", "C"]
+    "items": ["React", "TypeScript", "Next.js", "NestJS", "Java", "Java Spring Boot", "Microservices", "RESTful API", "Webpack", "NPM", "Git", "C", "GenAI", "Agile", "Kanban"]
   },
   {
     "category": "Cloud & DevOps",
