@@ -67,6 +67,10 @@ const intentKeywords: Record<Exclude<IntentType, 'UNKNOWN'>, string[]> = {
     'transaction generator', 'comparison tool', 'vba macro', 'name generator',
     'transaction tool',
   ],
+  PROJ_SYNONE: [
+    'synone', 'syn one', 'store', 'storefront', 'ecommerce', 'e-commerce',
+    'redux', 'rtk',
+  ],
   EDU_BACHELOR: ['bachelor', 'umpsa', 'computer system', 'networking', 'final year project'],
   EDU_DIPLOMA: ['diploma', 'cgpa'],
 };
@@ -83,6 +87,7 @@ const entityIds: Partial<Record<IntentType, { kind: 'edu' | 'exp' | 'project'; i
   PROJ_NIKOH: { kind: 'project', id: 'nikoh' },
   PROJ_WARNA: { kind: 'project', id: 'warna-asmara' },
   PROJ_TRANSACTION: { kind: 'project', id: 'transaction-generator' },
+  PROJ_SYNONE: { kind: 'project', id: 'synone-store' },
   EDU_BACHELOR: { kind: 'edu', id: 'bachelor' },
   EDU_DIPLOMA: { kind: 'edu', id: 'diploma' },
 };
@@ -107,6 +112,7 @@ const TIERS: Partial<Record<IntentType, 'category' | 'entity'>> = {
   PROJ_NIKOH: 'entity',
   PROJ_WARNA: 'entity',
   PROJ_TRANSACTION: 'entity',
+  PROJ_SYNONE: 'entity',
   EDU_BACHELOR: 'entity',
   EDU_DIPLOMA: 'entity',
 };

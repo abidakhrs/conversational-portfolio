@@ -94,6 +94,37 @@
     }
   },
   {
+    "id": "synone-store",
+    "name": "SynOne Store",
+    "tagline": "Modern storefront UI/UX with a component-driven design system",
+    "description": "A modern e-commerce storefront focused on UI/UX, built as a front-end showcase with a polished browsing and cart experience.",
+    "longDescription": "Built a modern storefront using Next.js, Tailwind CSS, and Motion, with Redux Toolkit for client-side state management. Focused on delivering a clean, responsive UI/UX across product browsing, filtering, and cart interactions. Implemented as a front-end only project without backend services such as payments or order processing.",
+    "status": "Deployed",
+    "year": "2025",
+    "type": "Front-End Web App",
+    "image": "/next.svg",
+    "url": "https://store-omega-indol.vercel.app/",
+    "github": null,
+    "tech": [
+      "Next.js",
+      "Tailwind CSS",
+      "Motion",
+      "Redux Toolkit"
+    ],
+    "highlights": [
+      "Built a modern storefront UI/UX with a focus on responsive layout, visual hierarchy, and smooth interactions.",
+      "Managed cart and product state on the client using Redux Toolkit.",
+      "Added Motion-driven transitions and micro-interactions to create a polished browsing experience.",
+      "Implemented as a front-end showcase — no backend services such as payments or order processing."
+    ],
+    "topics": {
+      "architecture": "Next.js front end with Tailwind CSS for styling, Redux Toolkit for client-side state, and Motion for animation. Deployed on Vercel as a static front-end application with no backend layer.",
+      "ai": "No AI integration — the focus is purely on UI/UX and interaction design.",
+      "stack": "Next.js, Tailwind CSS, Motion, Redux Toolkit.",
+      "challenges": "Creating a convincing storefront experience purely on the front end, which meant handling cart state and product data entirely on the client while keeping interactions feeling fast and natural."
+    }
+  },
+  {
     "id": "conversational-portfolio",
     "name": "Conversational Portfolio",
     "tagline": "AI-style interactive portfolio with intent-driven conversations",

@@ -130,6 +130,7 @@ export type IntentType =
   | 'PROJ_NIKOH'
   | 'PROJ_WARNA'
   | 'PROJ_TRANSACTION'
+  | 'PROJ_SYNONE'
   | 'EDU_BACHELOR'
   | 'EDU_DIPLOMA';
 
